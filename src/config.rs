@@ -1470,6 +1470,11 @@ pub async fn parse(path: &str) -> Result<(), Error> {
     Ok(())
 }
 
+/// Set the config programmatically.
+pub fn set_config(config: Config) {
+    CONFIG.store(Arc::new(config));
+}
+
 pub async fn reload_config(client_server_map: ClientServerMap) -> Result<bool, Error> {
     let old_config = get_config();
 
